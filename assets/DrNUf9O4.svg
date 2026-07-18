@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif">
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#2d2a24" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a7f6d"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff8400"/>
+    </marker>
+    <marker id="arrowC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0086bb"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1440" height="920" fill="#faf6ee"/>
+
+  <!-- Title -->
+  <text x="48" y="52" font-size="30" font-weight="700" fill="#2d2a24">PO Extraction RAG</text>
+  <text x="48" y="80" font-size="16" fill="#5f5646">Python, FastAPI, Pinecone, OpenAI, AWS</text>
+
+  <!-- Legend -->
+  <g>
+    <rect x="1132" y="104" width="268" height="150" rx="12" fill="#ffffff" stroke="#dfd2bf" stroke-width="1.5"/>
+    <text x="1152" y="132" font-size="13" font-weight="700" fill="#5f5646">LEGEND</text>
+    <rect x="1152" y="146" width="16" height="16" rx="4" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+    <text x="1178" y="159" font-size="13" fill="#2d2a24">Component</text>
+    <rect x="1152" y="172" width="16" height="16" rx="4" fill="#ffe9cc" stroke="#ff8400" stroke-width="1.5"/>
+    <text x="1178" y="185" font-size="13" fill="#2d2a24">Control / router</text>
+    <rect x="1152" y="198" width="16" height="16" rx="4" fill="#d6f0fb" stroke="#0086bb" stroke-width="1.5"/>
+    <text x="1178" y="211" font-size="13" fill="#2d2a24">Memory / data</text>
+    <rect x="1152" y="224" width="16" height="16" rx="4" fill="#2d2a24"/>
+    <text x="1178" y="237" font-size="13" fill="#2d2a24">Terminal action</text>
+  </g>
+
+  <!-- Ingress -->
+  <g filter="url(#soft)">
+    <rect x="48" y="180" width="230" height="100" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="163" y="222" text-anchor="middle" font-size="16" font-weight="700" fill="#2d2a24">Purchase Order</text>
+  <text x="163" y="246" text-anchor="middle" font-size="13" fill="#5f5646">(varied vendor formats)</text>
+
+  <!-- Router -->
+  <g filter="url(#soft)">
+    <rect x="340" y="150" width="340" height="170" rx="14" fill="#fffaf3" stroke="#ff8400" stroke-width="2.5"/>
+  </g>
+  <text x="510" y="188" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2a24">Format Classifier / Model Router</text>
+  <text x="510" y="214" text-anchor="middle" font-size="13" fill="#5f5646">routes each PO to the LLM best suited to its format</text>
+  <g font-size="11" fill="#2d2a24">
+    <rect x="350" y="232" width="100" height="30" rx="8" fill="#ffe9cc"/>
+    <text x="400" y="251" text-anchor="middle">PDF</text>
+    <rect x="460" y="232" width="100" height="30" rx="8" fill="#ffe9cc"/>
+    <text x="510" y="251" text-anchor="middle">Scanned image</text>
+    <rect x="570" y="232" width="100" height="30" rx="8" fill="#ffe9cc"/>
+    <text x="620" y="251" text-anchor="middle">Email body</text>
+  </g>
+  <text x="510" y="292" text-anchor="middle" font-size="12" fill="#8a5a12">one model rarely fits every format well</text>
+
+  <!-- LLM row label -->
+  <text x="510" y="356" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a24">Parallel Extraction Lane, routed by format</text>
+
+  <!-- LLM row -->
+  <g filter="url(#soft)">
+    <rect x="220" y="372" width="170" height="88" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="305" y="410" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">LLM A</text>
+  <text x="305" y="432" text-anchor="middle" font-size="12" fill="#5f5646">format-specific model</text>
+
+  <g filter="url(#soft)">
+    <rect x="425" y="372" width="170" height="88" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="510" y="410" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">LLM B</text>
+  <text x="510" y="432" text-anchor="middle" font-size="12" fill="#5f5646">format-specific model</text>
+
+  <g filter="url(#soft)">
+    <rect x="630" y="372" width="170" height="88" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="715" y="410" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">LLM C</text>
+  <text x="715" y="432" text-anchor="middle" font-size="12" fill="#5f5646">format-specific model</text>
+
+  <!-- Output -->
+  <g filter="url(#soft)">
+    <rect x="320" y="560" width="380" height="90" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="510" y="598" text-anchor="middle" font-size="16" font-weight="700" fill="#2d2a24">Structured Extraction Output</text>
+  <text x="510" y="624" text-anchor="middle" font-size="13" fill="#5f5646">validated fields, JSON schema</text>
+
+  <!-- Terminal -->
+  <g filter="url(#soft)">
+    <rect x="360" y="700" width="300" height="80" rx="10" fill="#2d2a24"/>
+  </g>
+  <text x="510" y="738" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Client / API (FastAPI)</text>
+  <text x="510" y="760" text-anchor="middle" font-size="12.5" fill="#cfc7b8">served over REST</text>
+
+  <!-- AWS hosting band -->
+  <g filter="url(#soft)">
+    <rect x="360" y="796" width="300" height="38" rx="8" fill="#ffffff" stroke="#dfd2bf" stroke-width="1.5"/>
+  </g>
+  <text x="510" y="820" text-anchor="middle" font-size="12.5" fill="#5f5646">AWS-hosted FastAPI service layer</text>
+
+  <!-- User corrections -->
+  <g filter="url(#soft)">
+    <rect x="900" y="712" width="280" height="78" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="1040" y="748" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">User Corrections</text>
+  <text x="1040" y="770" text-anchor="middle" font-size="12" fill="#5f5646">edits captured post-delivery</text>
+
+  <!-- Pinecone retrieval memory -->
+  <g filter="url(#soft)">
+    <rect x="900" y="560" width="280" height="110" rx="10" fill="#d6f0fb" stroke="#0086bb" stroke-width="1.8"/>
+  </g>
+  <text x="1040" y="596" text-anchor="middle" font-size="15" font-weight="700" fill="#06344a">Pinecone Retrieval Memory</text>
+  <text x="1040" y="620" text-anchor="middle" font-size="12.5" fill="#0a5578">vendor-format embeddings</text>
+  <text x="1040" y="640" text-anchor="middle" font-size="12.5" fill="#0a5578">self-training memory layer</text>
+
+  <!-- Feedback loop caption -->
+  <rect x="740" y="278" width="380" height="58" rx="10" fill="#faf6ee"/>
+  <text x="930" y="302" text-anchor="middle" font-size="13" font-weight="700" fill="#c96a00">Corrections feed back as retrieval context</text>
+  <text x="930" y="324" text-anchor="middle" font-size="12" fill="#5f5646">Accuracy improves on recurring vendor formats over time</text>
+
+  <!-- Edges -->
+  <!-- ingress -> router -->
+  <path d="M278,228 C310,222 320,224 336,232" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- router -> LLM row -->
+  <path d="M460,320 C420,340 360,352 310,368" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M510,320 L510,368" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M560,320 C600,340 660,352 710,368" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- LLM row -> output -->
+  <path d="M330,460 C380,500 440,520 490,556" fill="none" stroke="#8a7f6d" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M510,460 L510,556" fill="none" stroke="#8a7f6d" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M690,460 C640,500 580,520 530,556" fill="none" stroke="#8a7f6d" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <!-- output -> terminal -->
+  <path d="M510,650 L510,696" fill="none" stroke="#8a7f6d" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <!-- terminal -> corrections -->
+  <path d="M660,742 C760,748 830,748 896,748" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- corrections -> pinecone -->
+  <path d="M1040,712 L1040,674" fill="none" stroke="#0086bb" stroke-width="2" marker-end="url(#arrowC)"/>
+  <!-- feedback: pinecone -> router -->
+  <path d="M1040,560 C1060,380 900,260 684,230" fill="none" stroke="#ff8400" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrowO)"/>
+</svg>

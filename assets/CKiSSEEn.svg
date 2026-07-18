@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" font-family="'Segoe UI', system-ui, -apple-system, Arial, sans-serif">
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#2d2a24" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a7f6d"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff8400"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1440" height="920" fill="#faf6ee"/>
+
+  <!-- Title -->
+  <text x="48" y="52" font-size="30" font-weight="700" fill="#2d2a24">LLM Eval Harness and Guardrail Pipeline</text>
+  <text x="48" y="80" font-size="16" fill="#5f5646">Python, DeepEval, MLflow, LoRA, Langfuse</text>
+
+  <!-- Legend -->
+  <g>
+    <rect x="1132" y="104" width="268" height="150" rx="12" fill="#ffffff" stroke="#dfd2bf" stroke-width="1.5"/>
+    <text x="1152" y="132" font-size="13" font-weight="700" fill="#5f5646">LEGEND</text>
+    <rect x="1152" y="146" width="16" height="16" rx="4" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+    <text x="1178" y="159" font-size="13" fill="#2d2a24">Agent / component</text>
+    <rect x="1152" y="172" width="16" height="16" rx="4" fill="#ffe9cc" stroke="#ff8400" stroke-width="1.5"/>
+    <text x="1178" y="185" font-size="13" fill="#2d2a24">Control / decision</text>
+    <rect x="1152" y="198" width="16" height="16" rx="4" fill="#d6f0fb" stroke="#0086bb" stroke-width="1.5"/>
+    <text x="1178" y="211" font-size="13" fill="#2d2a24">Memory / data</text>
+    <rect x="1152" y="224" width="16" height="16" rx="4" fill="#2d2a24"/>
+    <text x="1178" y="237" font-size="13" fill="#2d2a24">Terminal action</text>
+  </g>
+
+  <!-- Node 1: 15 hand-labeled expert trajectories (data) -->
+  <g filter="url(#soft)">
+    <rect x="48" y="140" width="230" height="90" rx="10" fill="#d6f0fb" stroke="#0086bb" stroke-width="1.8"/>
+  </g>
+  <text x="163" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="#06344a">15 Hand-Labeled Expert</text>
+  <text x="163" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#06344a">Trajectories</text>
+  <text x="163" y="216" text-anchor="middle" font-size="11" fill="#0a5578">fixed eval set</text>
+
+  <!-- Node 2: LoRA fine-tune (component) -->
+  <g filter="url(#soft)">
+    <rect x="48" y="270" width="230" height="100" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="163" y="304" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a24">LoRA Fine-Tune</text>
+  <text x="163" y="328" text-anchor="middle" font-size="12.5" fill="#5f5646">55% to 83% eval accuracy</text>
+  <text x="163" y="348" text-anchor="middle" font-size="11" fill="#5f5646">domain-specific task</text>
+
+  <!-- Node 3: Agent under evaluation (component) -->
+  <g filter="url(#soft)">
+    <rect x="330" y="200" width="230" height="90" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="445" y="238" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a24">Agent Under</text>
+  <text x="445" y="258" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a24">Evaluation</text>
+  <text x="445" y="278" text-anchor="middle" font-size="11" fill="#5f5646">model + tool config</text>
+
+  <!-- Node 4: Eval Runner (component, larger) -->
+  <g filter="url(#soft)">
+    <rect x="612" y="140" width="380" height="200" rx="14" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="802" y="172" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2a24">Eval Runner</text>
+  <text x="802" y="192" text-anchor="middle" font-size="13" fill="#5f5646">DeepEval multi-turn + LLM-as-judge</text>
+  <g font-size="13" fill="#2d2a24">
+    <rect x="632" y="208" width="340" height="30" rx="6" fill="#f4efe2"/>
+    <text x="652" y="228">1. Multi-turn conversation replay &amp; scoring</text>
+    <rect x="632" y="246" width="340" height="30" rx="6" fill="#f4efe2"/>
+    <text x="652" y="266">2. LLM-as-judge quality scoring</text>
+    <rect x="632" y="284" width="340" height="30" rx="6" fill="#f4efe2"/>
+    <text x="652" y="304">3. Aggregate pass rate vs 15-trajectory set</text>
+  </g>
+
+  <!-- Node 5: A/B test (component) -->
+  <g filter="url(#soft)">
+    <rect x="1012" y="280" width="220" height="100" rx="10" fill="#ffffff" stroke="#2d2a24" stroke-width="1.5"/>
+  </g>
+  <text x="1122" y="310" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2a24">A/B Test</text>
+  <text x="1122" y="330" text-anchor="middle" font-size="12" fill="#5f5646">2 tool-config variants</text>
+  <text x="1122" y="352" text-anchor="middle" font-size="12" font-weight="700" fill="#c96a00">winner: +17 pt pass rate</text>
+
+  <!-- Node 6: MLflow tracking (data) -->
+  <g filter="url(#soft)">
+    <rect x="612" y="390" width="230" height="90" rx="10" fill="#d6f0fb" stroke="#0086bb" stroke-width="1.8"/>
+  </g>
+  <text x="727" y="428" text-anchor="middle" font-size="14" font-weight="700" fill="#06344a">MLflow Tracking</text>
+  <text x="727" y="450" text-anchor="middle" font-size="12" fill="#0a5578">experiment + run logging</text>
+
+  <!-- Node 7: Release Gate (control) -->
+  <g filter="url(#soft)">
+    <rect x="612" y="530" width="260" height="100" rx="12" fill="#ffe9cc" stroke="#ff8400" stroke-width="2.5"/>
+  </g>
+  <text x="742" y="564" text-anchor="middle" font-size="16" font-weight="700" fill="#2d2a24">Release Gate</text>
+  <text x="742" y="586" text-anchor="middle" font-size="13" fill="#5f5646">pass-rate threshold</text>
+  <text x="742" y="608" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c96a00">catches 11% of regressions</text>
+
+  <!-- Node 8: Deploy (terminal) -->
+  <g filter="url(#soft)">
+    <rect x="950" y="540" width="180" height="64" rx="10" fill="#2d2a24"/>
+  </g>
+  <text x="1040" y="578" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Deploy</text>
+
+  <!-- Node 10: Deterministic Guardrail Layer (control) -->
+  <g filter="url(#soft)">
+    <rect x="950" y="650" width="280" height="100" rx="12" fill="#ffe9cc" stroke="#ff8400" stroke-width="2.5"/>
+  </g>
+  <text x="1090" y="680" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">Deterministic Guardrail</text>
+  <text x="1090" y="700" text-anchor="middle" font-size="15" font-weight="700" fill="#2d2a24">Layer</text>
+  <text x="1090" y="722" text-anchor="middle" font-size="12" fill="#5f5646">validate tool call vs business rules</text>
+  <text x="1090" y="742" text-anchor="middle" font-size="12" font-weight="700" fill="#c96a00">156 invalid actions blocked</text>
+
+  <!-- Node 11: Execute tool call (terminal) -->
+  <g filter="url(#soft)">
+    <rect x="1010" y="780" width="200" height="64" rx="10" fill="#2d2a24"/>
+  </g>
+  <text x="1110" y="818" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Execute Tool Call</text>
+
+  <!-- Governance banner -->
+  <rect x="48" y="868" width="1344" height="40" rx="10" fill="#ffffff" stroke="#dfd2bf" stroke-width="1.5"/>
+  <text x="720" y="893" text-anchor="middle" font-size="13.5" font-weight="700" fill="#5f5646">ISO 42001 + NIST AI RMF: continuous compliance monitoring across the eval and guardrail pipeline</text>
+
+  <!-- Edges -->
+  <!-- trajectories -> eval runner -->
+  <path d="M278,185 C400,190 500,205 612,220" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- LoRA -> agent under evaluation -->
+  <path d="M278,320 C300,300 310,285 328,272" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- agent under evaluation -> eval runner -->
+  <path d="M560,245 C580,238 596,232 610,228" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- eval runner -> MLflow -->
+  <path d="M802,340 C780,362 750,376 727,388" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- MLflow -> release gate -->
+  <path d="M727,480 C733,498 738,512 742,528" fill="none" stroke="#8a7f6d" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- A/B test -> release gate -->
+  <path d="M1012,330 C960,380 920,450 902,500 C890,515 880,522 872,530" fill="none" stroke="#ff8400" stroke-width="2.2" marker-end="url(#arrowO)"/>
+  <!-- release gate -> deploy (pass) -->
+  <path d="M872,572 L948,573" fill="none" stroke="#ff8400" stroke-width="2.2" marker-end="url(#arrowO)"/>
+  <text x="908" y="562" text-anchor="middle" font-size="11" font-weight="700" fill="#c96a00">pass</text>
+  <!-- release gate -> agent under evaluation (fail, feedback, dashed) -->
+  <path d="M612,600 C380,760 20,680 20,480 C20,360 40,300 150,270 C230,245 290,240 328,252" fill="none" stroke="#ff8400" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrowO)"/>
+  <rect x="10" y="608" width="190" height="30" rx="8" fill="#faf6ee"/>
+  <text x="105" y="628" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c96a00">fail: iterate &amp; retrain</text>
+  <!-- deploy -> guardrail layer -->
+  <path d="M1040,604 C1060,622 1075,636 1090,648" fill="none" stroke="#ff8400" stroke-width="2.2" marker-end="url(#arrowO)"/>
+  <!-- guardrail layer -> execute -->
+  <path d="M1090,750 C1098,762 1104,772 1110,778" fill="none" stroke="#ff8400" stroke-width="2.2" marker-end="url(#arrowO)"/>
+</svg>
